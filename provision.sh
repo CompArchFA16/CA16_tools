@@ -3,7 +3,6 @@
 # -Digilent Adept
 # -Icarus
 # -Git
-# This installer assumes
 
 echo "Installing system updates."
 sudo apt-get update
