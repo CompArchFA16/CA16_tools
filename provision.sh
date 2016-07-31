@@ -34,6 +34,8 @@ cd /home/vagrant/Xilinx/Xilinx_Vivado_SDK_2016.2_0605_1/
 sudo bash ./xsetup --agree XilinxEULA,3rdPartyEULA,WebTalkTerms --batch Install --config /vagrant/install_config.txt
 cd /home/vagrant
 sudo rm -rf Xilinx/
+sudo chmod 777 -R /opt/Xilinx
+sudo chmod 777 -R ~/.Xilinx
 
 echo "Cleaning up and starting Desktop!"
 sudo apt-get -y autoremove

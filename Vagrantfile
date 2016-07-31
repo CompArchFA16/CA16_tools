@@ -40,10 +40,9 @@ Vagrant.configure("2") do |config|
     vb.cpus = "1"
     vb.customize ["modifyvm", :id, "--vram", "128"]
 
-    # TODO: Figure out how to forward Zybo's Debug port.
-    vb.customize ['modifyvm', :id, '--usb', 'on']
-    # vb.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'JTAG', '--vendorid', '0x0483', '--productid', '0x3748']
-    # vb.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'JTAG', '--vendorid', '0x0403', '--productid', '0x6010']
+    # If you can't see the FTDI device, add yourself to vboxusers group.
+    vb.customize ['modifyvm', :id, '--usbehci', 'on']
+    vb.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'ZyboDebug', '--vendorid', '0x0403', '--productid', '0x6010']
     # vb.customize ['guestproperty', 'set', vm_name, '/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold', '1000']
   end
 
