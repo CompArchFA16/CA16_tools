@@ -10,6 +10,13 @@
 # you're doing.
 vm_name = 'CA_tools'
 
+unless Vagrant.has_plugin?("vagrant-vbguest")
+  raise 'vagrant-vbguest is not installed!'
+end
+unless Vagrant.has_plugin?("vagrant-reload")
+  raise 'vagrant-reload is not installed!'
+end
+
 Vagrant.configure("2") do |config|
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
@@ -34,13 +41,14 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--vram", "128"]
 
     # TODO: Figure out how to forward Zybo's Debug port.
-    # vb.customize ['modifyvm', :id, '--usb', 'on']
+    vb.customize ['modifyvm', :id, '--usb', 'on']
     # vb.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'JTAG', '--vendorid', '0x0483', '--productid', '0x3748']
     # vb.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'JTAG', '--vendorid', '0x0403', '--productid', '0x6010']
     # vb.customize ['guestproperty', 'set', vm_name, '/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold', '1000']
   end
 
   # Provision the VM to install our software
+  config.vm.provision :reload
   config.vm.provision "shell" do |s|
    s.path = "provision.sh"
   end

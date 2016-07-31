@@ -1,5 +1,3 @@
 TODO:
--Look setting up unity or gnome or really any desktop.
--See if we can CLI install Vivado, although it's improbable.
 -Figure out how to forward the ZYBO usb port to VM
 -Include a test project with build scripts to verify all the tools.
