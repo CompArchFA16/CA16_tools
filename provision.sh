@@ -4,6 +4,7 @@
 # in the same folder as VagrantFile
 
 echo "Installing system updates."
+# This takes a long time, so perhaps we won't need to do this.
 sudo apt-get update
 sudo apt-get upgrade
 
@@ -25,7 +26,6 @@ sudo apt-get -y install -f
 
 echo "Installing Vivado. Go grab a coffee..."
 cd /vagrant
-# bash ./Xilinx_Vivado_SDK_2016.2_0605_1_Lin64.bin --target ~/Documents/Xilinx --noexec
 mkdir /home/vagrant/Xilinx
 tar -xvf Xilinx_Vivado_SDK_2016.2_0605_1.tar.gz -C /home/vagrant/Xilinx
 cd /home/vagrant/Xilinx/Xilinx_Vivado_SDK_2016.2_0605_1/
@@ -36,10 +36,11 @@ sudo chmod 777 -R /opt/Xilinx
 sudo chmod 777 -R ~/.Xilinx
 
 echo "Getting Digilent Zybo resources from git."
+rm -rf /vagrant/resources
 mkdir /vagrant/resources
 cd /vagrant/resources
 git clone https://github.com/Digilent/vivado-boards/
-cp -R /vagrant/resources/vivado-boards/new/board_files/* /opt/Xilinx/Vivado/2016.2/data/boards/board_files
+sudo cp -a /vagrant/resources/vivado-boards/new/board_files/. /opt/Xilinx/Vivado/2016.2/data/boards/board_files
 git clone https://github.com/Digilent/ZYBO
 
 echo "Done!"

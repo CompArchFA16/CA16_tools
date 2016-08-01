@@ -1,5 +1,6 @@
-# CA16
+# Olin Computer Architecture Tools
 This repo contains a vagrant box to set up iverilog + gtkwave as well Vivado.
+Scripts are set up to work with Vivado 2016.2 at the moment.
 
 # What you will need
 * About 30 GB of free disk space (installed size smaller)
@@ -21,7 +22,14 @@ This repo contains a vagrant box to set up iverilog + gtkwave as well Vivado.
   * This will take awhile, especially when installing Vivado.
 
 # Running and verifying Vivado installation
-* TBD
+* Setting up License
+  * [Apparently not necessary anymore (p 78)!](http://www.xilinx.com/support/documentation/sw_manuals/xilinx2016_2/ug973-vivado-release-notes-install-license.pdf)
 
 # Troubleshooting
-* Also TBD.
+## Can't find the ZYBO board.
+* Are you plugged into PROG/UART on the board?
+* Is the board on?
+* Can the host machine see the board as a usb device?
+* Have you added yourself to vboxusers?
+* Does Future Technology Devices International Device appear in in lsusb?
+* If you open the virtualbox GUI, is the USB controller attached?

@@ -1,3 +1,2 @@
 TODO:
--Figure out how to forward the ZYBO usb port to VM
 -Include a test project with build scripts to verify all the tools.
