@@ -20,10 +20,15 @@ Scripts are set up to work with Vivado 2016.2 at the moment.
 * Close anything you don't need,
 * In this repo's root folder, run `vagrant up`
   * This will take awhile, especially when installing Vivado.
+* That should be all you need to do!
 
 # Running and verifying Vivado installation
+* Launch with `start_vivado.sh` in `/vagrant`
 * Setting up License
-  * [Apparently not necessary anymore (p 78)!](http://www.xilinx.com/support/documentation/sw_manuals/xilinx2016_2/ug973-vivado-release-notes-install-license.pdf)
+  * [Apparently not necessary anymore (p 75)!](http://www.xilinx.com/support/documentation/sw_manuals/xilinx2016_2/ug973-vivado-release-notes-install-license.pdf)
+* Plug the Zybo into the host machine and ensure that it appears when you run `lsusb`
+* Load example code to FPGA (Coming soon) with Vivado GUI
+  * Maybe I'll make a script that attempts to build and load a project w/ tcl scripts.
 
 # Troubleshooting
 ## Can't find the ZYBO board.
@@ -31,5 +36,5 @@ Scripts are set up to work with Vivado 2016.2 at the moment.
 * Is the board on?
 * Can the host machine see the board as a usb device?
 * Have you added yourself to vboxusers?
-* Does Future Technology Devices International Device appear in in lsusb?
+* Does Future Technology Devices International Device appear in lsusb?
 * If you open the virtualbox GUI, is the USB controller attached?
