@@ -15,8 +15,8 @@ sudo apt-get -y install xubuntu-desktop
 echo "Installing build tools."
 sudo apt-get -y install git cmake
 sudo apt-get -y gcc-arm-none-eabi gdb-arm-none-eabi gcc-arm-linux-gnueabi gcc-multilib
-# Vivado needs these but doesn't check for dependencies when it installs. :/
-sudo apt-get -y install libstdc++6:i386 libgtk2.0-0:i386 dpkg-dev:i386
+# SDK appears to need these?
+sudo apt-get -y install libstdc++6:i386 lib32z1
 
 echo "Installing Icarus Verilog & GTK Wave."
 sudo apt-get -y install gtkwave
