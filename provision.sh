@@ -5,15 +5,18 @@
 
 echo "Installing system updates."
 # This takes a long time, so perhaps we won't need to do this.
+sudo dpkg --add-architecture i386
 sudo apt-get update
 sudo apt-get upgrade
 
 echo "Installing the desktop."
 sudo apt-get -y install xubuntu-desktop
 
-echo "Installing packages needed for build."
-sudo apt-get -y install git
-sudo apt-get -y install cmake
+echo "Installing build tools."
+sudo apt-get -y install git cmake
+sudo apt-get -y gcc-arm-none-eabi gdb-arm-none-eabi gcc-arm-linux-gnueabi gcc-multilib
+# Vivado needs these but doesn't check for dependencies when it installs. :/
+sudo apt-get -y install libstdc++6:i386 libgtk2.0-0:i386 dpkg-dev:i386
 
 echo "Installing Icarus Verilog & GTK Wave."
 sudo apt-get -y install gtkwave
