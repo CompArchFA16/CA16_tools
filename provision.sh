@@ -8,8 +8,6 @@ sudo apt-get update
 sudo apt-get upgrade
 
 echo "Installing the desktop."
-# I'm still looking into CLI installing Vivado, but until then we
-# need a desktop.
 sudo apt-get -y install xubuntu-desktop
 
 echo "Installing packages needed for build."
@@ -37,5 +35,12 @@ sudo rm -rf Xilinx/
 sudo chmod 777 -R /opt/Xilinx
 sudo chmod 777 -R ~/.Xilinx
 
-echo "Cleaning up and starting Desktop!"
-sudo apt-get -y autoremove
+echo "Getting Digilent Zybo resources from git."
+mkdir /vagrant/resources
+cd /vagrant/resources
+git clone https://github.com/Digilent/vivado-boards/
+cp -R /vagrant/resources/vivado-boards/new/board_files/* /opt/Xilinx/Vivado/2016.2/data/boards/board_files
+git clone https://github.com/Digilent/ZYBO
+
+echo "Done!"
+echo "You can log in with user: vagrant, password: vagrant"
