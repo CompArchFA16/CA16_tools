@@ -34,7 +34,7 @@ Vagrant.configure("2") do |config|
 
     # If you can't see the FTDI device, add yourself to vboxusers group.
     # FTDI device should be forwarded as soon as its added.
-    # Say something if this fails on windows.
+    # Tell me if this fails on windows.
     vb.customize ['modifyvm', :id, '--usb', 'on']
     vb.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'ZyboDebug', '--vendorid', '0x0403', '--productid', '0x6010']
     # vb.customize ['guestproperty', 'set', vm_name, '/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold', '1000']
