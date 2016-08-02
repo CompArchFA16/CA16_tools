@@ -29,7 +29,7 @@ sudo apt-get -y install gtkwave
 sudo apt-get -y install iverilog
 sudo pip install myhdl
 
-adept = /vagrant/digilent.adept.runtime_2.16.5-amd64.deb
+adept=/vagrant/digilent.adept.runtime_2.16.5-amd64.deb
 if [ ! -e "$adept" ]; then
   echo "Can't find Digilent Adept Runtime .deb file!"
 else
@@ -44,7 +44,7 @@ fi
 # compact the disk image.
 v_archive=/vagrant/Xilinx_Vivado_SDK_2016.2_0605_1.tar.gz
 if [ ! -e "$v_archive" ]; then
-    echo "Can't find Vivado archive! Continuing w/o Vivado..."
+  echo "Can't find Vivado archive! Continuing w/o Vivado..."
 else
   echo "Installing Vivado. Go grab a coffee..."
   cd /vagrant
@@ -69,4 +69,4 @@ git clone https://github.com/Digilent/ZYBO
 
 echo "Done!"
 echo "You can log in with user: vagrant, password: vagrant"
-cat provision_helper.txt
+cat /vagrant/provision_helper.txt
