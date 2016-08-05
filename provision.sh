@@ -29,6 +29,7 @@ sudo apt-get -y install gtkwave
 sudo apt-get -y install iverilog
 sudo pip install myhdl
 
+# Digilent Cable drivers. Maybe wget this file?
 adept=/vagrant/digilent.adept.runtime_2.16.5-amd64.deb
 if [ ! -e "$adept" ]; then
   echo "Can't find Digilent Adept Runtime .deb file!"
@@ -42,21 +43,7 @@ fi
 # and install a portion of it. It deletes the decompressed files afterwards,
 # but if you're really hurting for space you might want to have VirtualBox
 # compact the disk image.
-v_archive=/vagrant/Xilinx_Vivado_SDK_2016.2_0605_1.tar.gz
-if [ ! -e "$v_archive" ]; then
-  echo "Can't find Vivado archive! Continuing w/o Vivado..."
-else
-  echo "Installing Vivado. Go grab a coffee..."
-  cd /vagrant
-  mkdir /home/vagrant/Xilinx
-  tar -xvf Xilinx_Vivado_SDK_2016.2_0605_1.tar.gz -C /home/vagrant/Xilinx
-  cd /home/vagrant/Xilinx/Xilinx_Vivado_SDK_2016.2_0605_1/
-  sudo bash ./xsetup --agree XilinxEULA,3rdPartyEULA,WebTalkTerms --batch Install --config /vagrant/install_config.txt
-  cd /home/vagrant
-  sudo rm -rf Xilinx/
-  sudo chmod 777 -R /opt/Xilinx
-  sudo chmod 777 -R ~/.Xilinx
-fi
+source /vagrant/vivado_install.sh
 
 echo "Getting Digilent Zybo resources from git."
 rm -rf /vagrant/resources

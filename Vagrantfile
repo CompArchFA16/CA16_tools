@@ -46,5 +46,10 @@ Vagrant.configure("2") do |config|
   end
   config.vm.provision :reload
 
+  # config.vm.provider "virtualbox" do |v|
+  #   # VBoxManage modifyhd --compact "[drive]:\[path_to_image_file]\[name_of_image_file].vdi"
+  #   vb.customize ['modifyhd', '--compact', ]
+  # end
+
 
 end
