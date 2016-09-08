@@ -6,10 +6,13 @@ working development environment that can connect to and program Digilent boards.
 * 16GB of free disk space.
   * About 8GB can be reclaimed after install.
 * Virtualbox
+  * `# apt-get install virtualbox`
+  * `# apt-get install virtualbox-guest-additions-iso`
 * Virtualbox Extensionpack
 * Vagrant
   * and plugins vagrant-vbguest and vagrant-reload
-  * `vagrant plugin install vagrant-vbguest` and `vagrant plugin install vagrant-reload`
+  * `vagrant plugin install vagrant-vbguest`
+  * `vagrant plugin install vagrant-reload`
 * Yourself added to `vboxusers` group if on Linux.
 * Something to do for about 15 min.
 
