@@ -8,7 +8,7 @@
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
-vm_name = 'CA_tools'
+vm_name = 'CA16Tools'
 
 unless Vagrant.has_plugin?("vagrant-vbguest")
   raise 'vagrant-vbguest is not installed!'
@@ -18,7 +18,7 @@ unless Vagrant.has_plugin?("vagrant-reload")
 end
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "CA16"
 
   config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
@@ -40,16 +40,8 @@ Vagrant.configure("2") do |config|
     # vb.customize ['guestproperty', 'set', vm_name, '/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold', '1000']
   end
 
-  # Provision the VM to install our software
-  config.vm.provision "shell" do |s|
-   s.path = "provision.sh"
-  end
   config.vm.provision :reload
 
-  # config.vm.provider "virtualbox" do |v|
-  #   # VBoxManage modifyhd --compact "[drive]:\[path_to_image_file]\[name_of_image_file].vdi"
-  #   vb.customize ['modifyhd', '--compact', ]
-  # end
 
 
 end

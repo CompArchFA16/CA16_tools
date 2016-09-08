@@ -1,2 +1,0 @@
-TODO:
--Include a test project with build scripts to verify all the tools.
