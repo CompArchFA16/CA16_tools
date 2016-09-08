@@ -3,33 +3,31 @@ This repo contains a vagrant box to bring up Verilog tools and Vivado into a
 working development environment that can connect to and program Digilent boards.
 
 # What you will need
-* 40 GB of free disk space.
-  * The image actually gets very close to this size, but can be compacted later.
+* 16GB of free disk space.
+  * About 8GB can be reclaimed after install.
 * Virtualbox
 * Virtualbox Extensionpack
 * Vagrant
   * and plugins vagrant-vbguest and vagrant-reload
 * Yourself added to vboxusers group if on Linux.
-* Something to do for about an hour.
+* Something to do for about 15 min.
 
-# What you will need to download into this repo folder
-* [Digilent Adept Runtime 64bit .deb](https://reference.digilentinc.com/reference/software/adept/start?redirect=1id=digilent_adept_2#software_downloads)
-* [Vivado 2016.2 (the full image, requires registration)](http://www.xilinx.com/support/download.html)
-* Both files can be deleted after installation, but will be needed again if you ever `vagrant destroy`
+# What you will need to move into this repo folder
+* CA16.box, which you'll (soon) be able to find on public, or get from a TA.
 
 # Getting Started
 * Close anything you don't need,
-* In this repo's root folder, run `vagrant up`
-  * This will take awhile, especially when installing Vivado.
-* That should be all you need to do!
+* In this repo's root folder, run `vagrant box add CA16 CA16.box`
+  * This will take awhile, the box is pretty large.
+* Run `vagrant up`
+* When the desktop boots login as user `vagrant` with password `vagrant`
+* The folder with Vagrantfile in it (this one) will be shared to the VM at `/vagrant`
 
 # Running and verifying Vivado installation
-* Launch with `start_vivado.sh` in `/vagrant`
+* Launch with `bash ./start_vivado.sh` in `/vagrant`
 * Setting up License
   * [Apparently not necessary anymore (p 75)!](http://www.xilinx.com/support/documentation/sw_manuals/xilinx2016_2/ug973-vivado-release-notes-install-license.pdf)
 * Plug the Zybo into the host machine and ensure that it appears when you run `lsusb`
-* Load example code to FPGA (Coming soon) with Vivado GUI
-  * Maybe I'll make a script that attempts to build and load a project w/ tcl scripts.
 
 # Troubleshooting
 ## Can't find the ZYBO board.
