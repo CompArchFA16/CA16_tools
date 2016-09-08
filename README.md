@@ -42,6 +42,7 @@ working development environment that can connect to and program Digilent boards.
 * Have you added yourself to vboxusers?
 * Does Future Technology Devices International Device appear in lsusb?
 * If you open the virtualbox GUI, is the USB controller attached?
+
 ## Synthesis/Implementation is REALLY slow.
 * Edit `Vagrantfile` and give the machine more memory or CPUs.
 * This process is naturally not very fast to begin with.
