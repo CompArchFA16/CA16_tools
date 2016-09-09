@@ -8,13 +8,18 @@ working development environment that can connect to and program Digilent boards.
 * Virtualbox
   * `# apt-get install virtualbox`
   * `# apt-get install virtualbox-guest-additions-iso`
-* Virtualbox Extensionpack
+* Oracle VM Virtualbox Extension Pack
+  * Download from [here](https://www.virtualbox.org/wiki/Downloads), and make sure the version downloaded matches your Virtualbox version.
+  * Then, `vboxmanage extpack install --replace /path/to/ext-pack`
+  * If you ever update Virtualbox, you will need to update the extensionpack to match it.
 * Vagrant
   * and plugins vagrant-vbguest and vagrant-reload
   * `vagrant plugin install vagrant-vbguest`
   * `vagrant plugin install vagrant-reload`
 * Yourself added to `vboxusers` group if on Linux.
-* Something to do for about 15 min.
+  * `# adduser $USER vboxusers`
+  * Check by typing `groups`
+* Patience.
 
 # What you will need to move into this repo folder
 * CA16.box, which you'll (soon) be able to find on public, or get from a TA.
@@ -28,13 +33,13 @@ working development environment that can connect to and program Digilent boards.
 * The folder with Vagrantfile in it (this one) will be shared to the VM at `/vagrant`
 * To poweroff, run `vagrant halt` in this directory.
 * To remove the machine completely and reclaim disk space run `vagrant destroy`
-  * And you'll need to delete ~/.vagrant.d/boxes/CA16
+  * And you'll want to delete ~/.vagrant.d/boxes/CA16 if you're really trying to forget Comp Arch ever existed at the end of the semester.
 
 # Running and verifying Vivado installation
 * Launch with `bash ./start_vivado.sh` in `/vagrant`
 * Setting up License
   * [Apparently not necessary anymore (p 75)!](http://www.xilinx.com/support/documentation/sw_manuals/xilinx2016_2/ug973-vivado-release-notes-install-license.pdf)
-* Plug the Zybo into the host machine and ensure that it appears when you run `lsusb`
+* Plug the Zybo into the host machine and ensure that it appears when you run `lsusb` in the VM, or open Vivado in the VM and try to connect in hardware manager.
 
 # Tips
 ## Can't find the ZYBO board.
