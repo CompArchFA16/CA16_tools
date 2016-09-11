@@ -18,6 +18,7 @@ working development environment that can connect to and program Digilent boards.
   * `vagrant plugin install vagrant-reload`
 * Yourself added to `vboxusers` group if on Linux.
   * `# adduser $USER vboxusers`
+  * Sign out and then back in.
   * Check by typing `groups`
 * Patience.
 
@@ -28,7 +29,7 @@ working development environment that can connect to and program Digilent boards.
 * Close anything you don't need,
 * In this repo's root folder, run `vagrant box add CA16 CA16.box`
   * This will take awhile, the box is pretty large.
-* Run `vagrant up`
+* Run `vagrant up`. The first time this command is issued will also take awhile.
 * When the desktop boots login as user `vagrant` with password `vagrant`
 * The folder with Vagrantfile in it (this one) will be shared to the VM at `/vagrant`
 * To poweroff, run `vagrant halt` in this directory.
@@ -37,6 +38,7 @@ working development environment that can connect to and program Digilent boards.
 
 # Running and verifying Vivado installation
 * Launch with `bash ./start_vivado.sh` in `/vagrant`
+  * Be careful, it's `/vagrant` NOT `/home/vagrant/`
 * Setting up License
   * [Apparently not necessary anymore (p 75)!](http://www.xilinx.com/support/documentation/sw_manuals/xilinx2016_2/ug973-vivado-release-notes-install-license.pdf)
 * Plug the Zybo into the host machine and ensure that it appears when you run `lsusb` in the VM, or open Vivado in the VM and try to connect in hardware manager.
