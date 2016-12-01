@@ -1,3 +1,4 @@
-cd /opt/Xilinx/Vivado/2016.2/ # Do this so vivado doesn't put logs in /vagrant.
-source settings64.sh
+#!/bin/bash
+cd /home/vagrant/Xilinx/Vivado/2016.3/
+source /home/vagrant/Xilinx/Vivado/2016.3/settings64.sh
 vivado

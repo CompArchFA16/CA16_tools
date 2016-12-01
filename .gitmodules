@@ -1,0 +1,3 @@
+[submodule "zybo"]
+	path = zybo
+	url = https://github.com/Digilent/ZYBO.git

@@ -8,17 +8,18 @@
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
-vm_name = 'CA_tools'
+vm_name = 'FPGAdev'
 
 unless Vagrant.has_plugin?("vagrant-vbguest")
   raise 'vagrant-vbguest is not installed!'
 end
+
 unless Vagrant.has_plugin?("vagrant-reload")
   raise 'vagrant-reload is not installed!'
 end
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "box-cutter/ubuntu1404-desktop"
 
   config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
@@ -26,8 +27,7 @@ Vagrant.configure("2") do |config|
 
     # Vivado needs a lot of RAM during synthesis.
     # If you're running with many CPU cores, increase CPUs for faster synthesis.
-    # Video might lag if you decrease the VRAM too much but I agree 128 is
-    # probably excessive.
+    # Video might lag if you decrease the VRAM too much.
     vb.memory = "4096"
     vb.cpus = "1"
     vb.customize ["modifyvm", :id, "--vram", "128"]
@@ -41,15 +41,22 @@ Vagrant.configure("2") do |config|
   end
 
   # Provision the VM to install our software
-  config.vm.provision "shell" do |s|
-   s.path = "provision.sh"
-  end
-  config.vm.provision :reload
+  config.vm.provision "shell", inline: <<-SHELL
+    echo "Installing system updates."
+    # This takes a long time, so perhaps we won't need to do this.
+    apt-get update
+    apt-get upgrade
 
-  # config.vm.provider "virtualbox" do |v|
-  #   # VBoxManage modifyhd --compact "[drive]:\[path_to_image_file]\[name_of_image_file].vdi"
-  #   vb.customize ['modifyhd', '--compact', ]
-  # end
+    echo "Installing system tools."
+    apt-get -y install git cmake
+    # apt-get -y gcc-arm-none-eabi gdb-arm-none-eabi gcc-arm-linux-gnueabi gcc-multilib
+    apt-get -y install python-pip
+
+    echo "Installing iverilog and GTKwave."
+    apt-get -y install gtkwave
+    apt-get -y install iverilog
+
+  SHELL
 
 
 end
