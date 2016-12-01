@@ -14,4 +14,4 @@ mkdir /vagrant/resources
 cd /vagrant/resources
 git clone https://github.com/Digilent/vivado-boards/
 # This will fail if Vivado didn't install, btw.
-sudo cp -a /vagrant/resources/vivado-boards/new/board_files/. /opt/Xilinx/Vivado/2016.2/data/boards/board_files
+sudo cp -a /vagrant/resources/vivado-boards/new/board_files/. /home/vagrant/Xilinx/Vivado/2016.3/data/boards/board_files
