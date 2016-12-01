@@ -28,8 +28,8 @@ Vagrant.configure("2") do |config|
     # Vivado needs a lot of RAM during synthesis.
     # If you're running with many CPU cores, increase CPUs for faster synthesis.
     # Video might lag if you decrease the VRAM too much.
-    vb.memory = "4096"
-    vb.cpus = "1"
+    vb.memory = "8192"
+    vb.cpus = "4"
     vb.customize ["modifyvm", :id, "--vram", "128"]
 
     # If you can't see the FTDI device, add yourself to vboxusers group.
@@ -55,6 +55,9 @@ Vagrant.configure("2") do |config|
     echo "Installing iverilog and GTKwave."
     apt-get -y install gtkwave
     apt-get -y install iverilog
+
+    dpkg -i /vagrant/digilent.adept.runtime_2.16.5-amd64.deb
+    apt-get -y install -f
 
   SHELL
 

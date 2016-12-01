@@ -22,7 +22,7 @@ that the relevant installer filers are already downloaded to the machine.
   * Vivado install can't be readily automated through the web installer. There's no way to pass login credentials!
   * Install vivado from the web installer first. Choose webpack, and check the box to install SDK. Also change the install path to be under /home/vagrant
   * Run `digilent_tools.sh` afterwards.
-  * chown -R vagrant:vagrant on Xilinx and .Xilinx.
+  * `chown -R vagrant:vagrant /home/vagrant/Xilinx` and `.Xilinx.`
 * Digilent board files are added as a submodule here.
 
 # Running and verifying Vivado installation
